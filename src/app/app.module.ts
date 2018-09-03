@@ -9,6 +9,9 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Firebase } from '@ionic-native/firebase';
+import { FmcProvider } from '../providers/fmc/fmc';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -17,7 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,7 +31,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Firebase,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FmcProvider
   ]
 })
 export class AppModule {}
